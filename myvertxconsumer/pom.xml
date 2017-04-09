@@ -32,6 +32,7 @@
     </dependencies>
 
     <build>
+        <finalName>my-vertx-consumer</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -68,6 +69,17 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <imageName>mdstech/${project.artifactId}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 </project>
