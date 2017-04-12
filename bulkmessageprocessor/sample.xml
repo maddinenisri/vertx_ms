@@ -1,0 +1,18 @@
+<persons>
+    <person>
+        <name>Srini12</name>
+        <role>Architect</role>
+    </person>
+    <person>
+        <name>Lak324</name>
+        <role>Developer</role>
+    </person>
+    <person>
+        <name>Div534</name>
+        <role>Student</role>
+    </person>
+    <person>
+        <name>Ani456</name>
+        <role>Student</role>
+    </person>
+</persons>

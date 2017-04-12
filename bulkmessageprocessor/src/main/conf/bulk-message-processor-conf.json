@@ -1,0 +1,6 @@
+{
+  "http.port" : 8080,
+  "kafka.url" : "192.168.99.100:9092",
+  "http.producer.port" : 8081,
+  "http.producer.host" : "192.168.99.100"
+}

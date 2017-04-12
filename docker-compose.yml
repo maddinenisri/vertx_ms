@@ -5,7 +5,6 @@ services:
     image: spotify/kafka
     environment:
       ADVERTISED_PORT: 9092
-      
     expose:
       - 9092
       - 2181
@@ -48,6 +47,24 @@ services:
       - kafka
     depends_on:
       - kafka
+    logging:
+      driver: json-file
+  bulk-message-processor:
+    container_name: bulk-message-processor
+    image: mdstech/bulk-message-processor
+    environment:
+      http.producer.host: message-producer
+      http.producer.port: 8080
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    networks:
+      - my-sample-network
+    links:
+      - message-producer
+    depends_on:
+      - message-producer
     logging:
       driver: json-file
 
