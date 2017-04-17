@@ -16,9 +16,18 @@ public class ConsumeVerticle extends AbstractVerticle {
             System.out.println("Startup tasks are now complete, ConsumeVerticle is now started!");
             startFuture.complete();
         });
-        eb.consumer("news-feed", message -> System.out.println("Received news on consumer 1: " + message.body()));
-        eb.consumer("news-feed", message -> System.out.println("Received news on consumer 2: " + message.body()));
-        eb.consumer("news-feed", message -> System.out.println("Received news on consumer 3: " + message.body()));
+        eb.consumer("news-feed", message -> {
+            System.out.println("Received news on consumer 1: " + message.body());
+            message.reply("consumer 1");
+        });
+        eb.consumer("news-feed", message -> {
+            System.out.println("Received news on consumer 2: " + message.body());
+            message.reply("consumer 2");
+        });
+        eb.consumer("news-feed", message -> {
+            System.out.println("Received news on consumer 3: " + message.body());
+            message.reply("consumer 3");
+        });
         System.out.println("Ready!");
     }
 

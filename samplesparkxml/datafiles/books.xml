@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<catalog>
+    <book id="bk01" gender="male">
+        <author>Anish, Maddineni</author>
+        <title>Sample Kids's book</title>
+        <genre>Kids</genre>
+        <price>23.00</price>
+        <publish_date>2017-01-01 00:00:02</publish_date>
+        <description>Simple Kids friction book</description>
+        <extra extraAttrib="Dave">
+            <one onExtraAttrib="Dave">one</one>
+            <two>two</two>
+            <three>three</three>
+            <four>
+                <five>five</five>
+                <six>
+                    <seven>seven1</seven>
+                    <seven>seven2</seven>
+                    <seven>seven3</seven>
+                </six>
+            </four>
+        </extra>
+    </book>
+    <book id="bk02" gender="female">
+        <author>Divya, Maddineni</author>
+        <title>Sample Kids's book</title>
+        <genre>Kids</genre>
+        <price>23.00</price>
+        <publish_date>2017-01-02 00:00:02</publish_date>
+        <description>Simple Kids Logic book</description>
+        <extra extraAttrib="Dave">
+            <one onExtraAttrib="Dave">one</one>
+            <two>two</two>
+            <three>three</three>
+            <four>
+                <five>five</five>
+                <six>
+                    <seven>seven4</seven>
+                    <seven>seven5</seven>
+                    <seven>seven6</seven>
+                </six>
+            </four>
+        </extra>
+    </book>
+
+</catalog>

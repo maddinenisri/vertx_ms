@@ -16,7 +16,13 @@ public class PublishVerticle extends AbstractVerticle {
             System.out.println("Startup tasks are now complete, PublishVerticle is now started!");
             startFuture.complete();
         });
-        vertx.setPeriodic(1000, v -> eb.publish("news-feed", "Some news!"));
+        vertx.setPeriodic(1000, v -> eb.send("news-feed", "Some news!", reply -> {
+            if (reply.succeeded()) {
+                System.out.println("Received reply " + reply.result().body());
+            } else {
+                System.out.println("No reply");
+            }
+        }));
     }
 
     @Override
