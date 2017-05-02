@@ -20,25 +20,29 @@ object ETLProcess {
       .getOrCreate()
 
     //load users csv file
-    loadBooksData(spark)
+//    loadBooksData(spark)
 
-//    createLargeCSV(spark)
+    createLargeCSV(spark)
   }
+
+  case class Person(id: Long, first: String, last: String)
 
   def createLargeCSV(spark: SparkSession) = {
 
     var df: DataFrame = null
 
     import spark.implicits._
-    case class Person(id: Long, first: String, last: String)
 
-    df = spark.range(1 ,1000000).map(i => (i, s"first_$i", s"last_$i")).select("_1", "_2", "_3")
+    df = spark.range(1 ,1000).map(i => createPerson(i)).select("id", "first", "last")
 
+//    df.show()
     df.coalesce(1).write.format("com.databricks.spark.csv").option("header", "true")
-      .option("delimiter", "|").save("datafiles/users100.csv")
+      .option("delimiter", "|").save("datafiles/users1000.csv")
   }
 
-
+  def createPerson(index: Long): Person = {
+    Person(index ,  s"first_$index", s"last_$index")
+  }
 
   def loadBooksData(spark: SparkSession) = {
     var df: DataFrame = null
