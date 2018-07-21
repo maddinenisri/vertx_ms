@@ -11,6 +11,6 @@ EXPOSE 8080
 COPY $VERTICLE_FILE $VERTICLE_HOME/
 
 # Launch the verticle
-WORKDIR $VERTICLE_HOME
+WORKDIR /var/tmp
 ENTRYPOINT ["sh", "-c"]
-CMD ["exec java -jar $VERTICLE_FILE"]
+CMD ["exec java -jar /usr/verticles/$VERTICLE_FILE"]
